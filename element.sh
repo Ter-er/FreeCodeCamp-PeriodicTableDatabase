@@ -5,9 +5,8 @@ PSQL="psql -X --username=freecodecamp --dbname=periodic_table --tuples-only --no
 
 if [[ -z "$1" ]]
 then 
-  echo "Please provide an element as an arguement."
+  echo -e "\nPlease provide an element as an arguement.\n"
 else
-
   # Queries database using both tables: elements and properties
   ELEMENT_INFO=$($PSQL "SELECT elements.atomic_number, name, symbol, type, atomic_mass, melting_point_celsius, boiling_point_celsius FROM elements INNER JOIN properties ON elements.atomic_number = properties.atomic_number;")
 
