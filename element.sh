@@ -5,7 +5,7 @@ PSQL="psql -X --username=freecodecamp --dbname=periodic_table --tuples-only --no
 
 if [[ -z "$1" ]]
 then 
-  echo -e "\nPlease provide an element as an arguement.\n"
+  echo "Please provide an element as an arguement."
   exit 1
 fi
 
