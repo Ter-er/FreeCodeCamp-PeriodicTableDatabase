@@ -5,10 +5,10 @@ PSQL="psql -X --username=freecodecamp --dbname=periodic_table --tuples-only --no
 
 if [[ -z "$1" ]]
 then 
-  echo -e "\nPlease provide an element as an arguement.\n"
+  echo "Please provide an element as an arguement."
 else
   # Queries database using both tables: elements and properties
-  ELEMENT_INFO=$($PSQL "SELECT elements.atomic_number, name, symbol, type, atomic_mass, melting_point_celsius, boiling_point_celsius FROM elements INNER JOIN properties ON elements.atomic_number = properties.atomic_number;")
+  ELEMENT_INFO=$($PSQL "SELECT elements.atomic_number, name, symbol, element_type, atomic_mass, melting_point_celsius, boiling_point_celsius FROM elements INNER JOIN properties ON elements.atomic_number = properties.atomic_number;")
 
   # Reads database values into variables line by line
   while IFS='|' read ATOMIC_NO NAME SYMBOL TYPE MASS MELTING_P BOILING_P 
